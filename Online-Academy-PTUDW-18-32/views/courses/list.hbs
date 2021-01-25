@@ -1,0 +1,44 @@
+<div class="container p-0 my-5" style="width: 75%;">
+    {{#if isvalid}}
+    <h2>Something wrong</h2>
+    {{else}}
+    <div class="text-left mb-5 p-3">
+        <h3> {{name}} Courses </h3>
+
+    </div>
+
+    <div class="container-fluid">
+        {{#if empty}}
+        <div class="row justify-content-around p-0 b-5">
+
+            {{#each list}}
+            <div class="col-4 p-3">
+                <div class="card h-100">
+                    <img class="card-img-top" src="{{thumbnail}}" alt="Card image cap">
+                    <div class="card-body d-flex flex-column">
+                        <p class="card-text text-primary font-weight-bold">{{name}}</p>
+                        <h6 class="card-title font-weight-bold">{{short_description}} </h5>
+                            <p class="card-subtitle text-secondary teacher-text">{{course_author.name}}</p>
+                            <div class="_46">
+                                <span class="number-rating"></span>
+                                <div class="stars-outer">
+                                    <div class="stars-inner"></div>
+                                </div>
+                                <span class="number-rates">({{rating}})</span>
+                            </div>
+                            <h5 class="card-text font-weight-bold"> ${{price}} </h5>
+                            <a href="/courses/{{slug}}" class="btn btn-primary align-self-start mt-auto">Go to
+                                course</a>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        {{>paging}}
+        {{else}}
+        <h3>Không có dữ liệu</h3>
+        {{/if}}
+    </div>
+    {{/if}}
+
+</div>

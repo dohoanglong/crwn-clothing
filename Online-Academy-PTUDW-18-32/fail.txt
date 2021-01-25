@@ -1,0 +1,38 @@
+#lỗi chung:
+Các route phải đăng nhập ms xem đc( do có findbyID):detail
+Chưa alert lỗi mà ms chỉ dạng res.json
+Chưa thêm mdw vào các route
+Chưa xử lý chỗ guest xem detail
+Chưa xứ lý không đăng review video khoá học
+#Auth:
+Khi k có tk nào trong DB thì login bị crash
+#tạo khóa hc:
+Numeral price, trạng thái khóa hc
+#Mua khóa hc:
+Chưa back đc trang trc( mún đc phải data-slug vào), order ở DB
+*Chua update da~ push vs delcart vs -money
+#Update profile
+
+##chưa thử router sai, chưa thử logout cho tài khoản chưa login,và các đường dẫn không hợp lệ vớI từng role
+chưa xử lý đăng nhập theo từng role
+chưa thêm đăng nhập cho admin
+chưa xử lý xoá sub cate khi cate chính bị xoá
+chua them truong discout, xu ly discout cho teacher va admin
+chưa có profile cho teacher, change password
+không cho phép sửa tên khi ko chọn ảnh 
+Lỗi đăng nhập tk teacher vào link đn cho stu
+
+Chưa render ra số lượng rating
+chưa format ảnh
+chưa xử lý đường dẫn sai
+chưa tạo view đăng nhập theo rule
+chưa xử lý tạo cate trùng tên
+chưa xử lý rating ở detail
+chưa tự động đăng nhập sau khi đăng ký
+chưa làm view chỉnh sửa cho teacher
+chua kiem tra quyen cua teacher ve course
+chua chon prevew
+
+#Mail
+nhom15webhcmus@gmail.com
+pass:adminAdm1n

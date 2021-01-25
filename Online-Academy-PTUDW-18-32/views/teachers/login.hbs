@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng nhập</title>
+  <link rel="stylesheet" href="/public/stylesheets/validator.css">
+</head>
+<style>
+  .swal2-popup {
+      font-size: 140% !important;
+    }
+  </style>
+</style>
+
+<body>
+  
+
+  <a class="header-link" href="/"><header class="Auth_header"><span class="Auth_logo"></span></header></a>
+<div class="main">
+
+  <form action="check" method="POST" class="form" id="form-1">
+    <h3 class="heading">ĐĂNG NHẬP</h3>
+    <h4 class="heading">GIÁO VIÊN</h4>
+    <p class="desc"></p>
+    <div class="spacer"></div>
+
+    <div class="form-group">
+      <label for="username" class="form-label">Tên đăng nhập</label>
+      <input id="username" name="username" type="text" placeholder="VD: abcd" class="form-control">
+      <span class="form-message"></span>
+    </div>
+
+    <div class="form-group">
+      <label for="password" class="form-label">Mật khẩu</label>
+      <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
+      <span class="form-message"></span>
+    </div>
+
+
+    <button class="btn btn-primary form-submit">Đăng Nhập</button>
+      <div class="Auth_disclaimer"><p>Bạn chưa có tài khoản?<br><a href="/teacher/create">Đăng ký tài khoản!</a></p></div>
+
+  </form>
+
+</div>
+
+
+<script src="/public/javascripts/validator.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+<script>
+  Validator({
+    form: '#form-1',
+    formGroup: '.form-group',
+    errorSelector: '.form-message',
+    rules: [
+    Validator.isRequired('#username','Vui lòng nhập tên đăng nhập'),
+    Validator.isRequired('#password','Vui lòng nhập password')
+    ],
+    onSubmit: function(data){
+      $.ajax({
+        url: `/teacher/check`,
+        type:"post",
+        data: { username: data.username,password: data.password },
+        success: function (response) {
+            if (response === "true") {
+              Swal.fire({
+                  title: 'Thành công!',
+                  text: 'Bạn đã đăng nhập thành công.',
+                  icon: 'success',
+                  confirmButtonText: 'OK'
+                })
+                .then(function() {
+                  location.href='/';
+              })
+            }
+            else{
+              Swal.fire({
+                  title: 'Thất bại!',
+                  text: response,
+                  icon: 'error',
+                  confirmButtonText: 'OK'
+                })
+                
+            }
+        }
+    });
+    }
+  }
+  )
+  
+  {{#if err_message}}
+    Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: '{{err_message}}',
+    })
+  {{/if}}
+</script>
+
+</body>
