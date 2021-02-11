@@ -1,5 +1,5 @@
 import React from "react";
-import cartReducer from "../../redux/cart/cart.reducer";
+//import cartReducer from "../../redux/cart/cart.reducer";
 import "./cart-item.styles.scss";
 
 const CartItem = ({ item: { imageUrl, price, name, quantity } }) => (
