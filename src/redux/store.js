@@ -5,8 +5,9 @@ import RootReducer from "./root-reducer";
 
 const middlewares = [];
 
-if(process.env.NODE_ENV==='development') {
-    console.log('asdfsfd');
+console.log(process.env.NODE_ENV);
+if(process.env.NODE_ENV!=='production') {
+    console.log(process.env.NODE_ENV);
     middlewares.push(logger);
 }
 
